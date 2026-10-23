@@ -1,7 +1,7 @@
 # GameDevGroup4
 
 # Player: Who is the player in your game?
-## the player in our game would be Theseus because he killed the Minotour in the story
+## The main player in our game would be Theseus because he killed the Minotaur in the story.
 
 # Goal: What are they trying to accomplish?
 ## The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
