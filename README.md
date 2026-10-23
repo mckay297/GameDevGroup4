@@ -8,5 +8,6 @@
 
 # Core action: What will they do repeatedly?
 # Challenge: What makes accomplishing the goal interesting?
-# Feedback: How will the game show that an action worked or that something changed?
+## If the player dies to an enemy or the Minotaur, a "You Were Slain" message will appear on the screen. If the Player slays the Minotaur, a "You Win. You have defeated the minotaur, and the land of Crete is free" will appear. If you collect a currency, you will gain 1 in the currency area.
 # Scope: What is the smallest playable version of this idea?
+## A maze where you go around and attack enemies. 
