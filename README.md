@@ -10,7 +10,7 @@
 ## The player will be running away from non player characters and is also collecting resources to fight the boss.
 
 ## The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
-<img width="42" height="82" alt="Player" src="https://github.com/user-attachments/assets/d212d319-a49c-47c2-9494-004cbb5579bf" />
+<img width="64" height="128" alt="Player" src="https://github.com/user-attachments/assets/d212d319-a49c-47c2-9494-004cbb5579bf" />
 <img width="128" height="128" alt="Tour (1)" src="https://github.com/user-attachments/assets/5e24f7c9-1de1-4e37-8247-11df8055b2d1" />
 
 
