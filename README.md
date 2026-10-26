@@ -15,3 +15,5 @@
 ## If the player dies to an enemy or the Minotaur, a "You Were Slain" message will appear on the screen. If the Player slays the Minotaur, a "You Win. You have defeated the minotaur, and the land of Crete is free" will appear. If you collect a currency, you will gain 1 in the currency area.
 # Scope: What is the smallest playable version of this idea?
 ## A maze where you go around and attack enemies. 
+
+# Game Pitch [Thesus and the Minotour] (https://docs.google.com/document/d/1ZszcVAKviLKmkxUt7jawMaNwTwpzuJ0M8KF1sLm6wnA/edit?usp=sharing)
