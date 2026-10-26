@@ -16,6 +16,7 @@
 
 ## Minitor Attack
 <img width="128" height="128" alt="Tour" src="https://github.com/user-attachments/assets/130d8d1b-0184-4837-87ac-63b2c930e259" />
+<img width="32" height="32" alt="TourSmash" src="https://github.com/user-attachments/assets/d5f3ac05-a66a-4cf0-9b5b-df5245e764d8" />
 
 # Core action: What will they do repeatedly?
 ## The player will be running away from non player characters and is also collecting resources to fight the boss.
