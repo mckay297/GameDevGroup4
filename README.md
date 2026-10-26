@@ -1,5 +1,6 @@
 # GameDevGroup4
 # Game Title: Thesus and the Minotour
+# Game inspiration idea
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/a2cfe23e-b583-45af-b01d-bfe0edf61139" />
 
 # Player: Who is the player in your game?
