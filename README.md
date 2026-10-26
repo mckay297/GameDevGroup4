@@ -6,6 +6,7 @@
 
 # Goal: What are they trying to accomplish?
 ## The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
+<img width="128" height="128" alt="Tour" src="https://github.com/user-attachments/assets/9e037dad-0d77-474f-a3ec-31efaac1c00a" />
 
 # Core action: What will they do repeatedly?
 # Challenge: What makes accomplishing the goal interesting?
