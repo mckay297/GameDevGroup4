@@ -1,5 +1,5 @@
 # GameDevGroup4
-<img width="750" height="562" alt="image" src="https://github.com/user-attachments/assets/a2cfe23e-b583-45af-b01d-bfe0edf61139" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/a2cfe23e-b583-45af-b01d-bfe0edf61139" />
 
 # Player: Who is the player in your game?
 ## The main player in our game would be Theseus because he killed the Minotaur in the story.
