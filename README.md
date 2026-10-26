@@ -5,6 +5,7 @@
 ## The main player in our game would be Theseus because he killed the Minotaur in the story.
 
 # Goal: What are they trying to accomplish?
+## The player will be running away from non player characters and is also collecting resources to fight the boss.
 ## The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
 <img width="128" height="128" alt="Tour (1)" src="https://github.com/user-attachments/assets/5e24f7c9-1de1-4e37-8247-11df8055b2d1" />
 
