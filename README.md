@@ -13,6 +13,7 @@
 
 
 # Core action: What will they do repeatedly?
+## The player will be running away from non player characters and is also collecting resources to fight the boss.
 # Challenge: What makes accomplishing the goal interesting?
 ## If the player dies to an enemy or the Minotaur, a "You Were Slain" message will appear on the screen. If the Player slays the Minotaur, a "You Win. You have defeated the minotaur, and the land of Crete is free" will appear. If you collect a currency, you will gain 1 in the currency area.
 # Scope: What is the smallest playable version of this idea?
