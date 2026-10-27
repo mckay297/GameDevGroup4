@@ -14,7 +14,7 @@
 <img width="64" height="128" alt="Player" src="https://github.com/user-attachments/assets/d212d319-a49c-47c2-9494-004cbb5579bf" />
 <img width="128" height="128" alt="Tour (1)" src="https://github.com/user-attachments/assets/5e24f7c9-1de1-4e37-8247-11df8055b2d1" />
 
-## Minitor Attack
+## Minotaur Attack
 <img width="128" height="128" alt="Tour" src="https://github.com/user-attachments/assets/130d8d1b-0184-4837-87ac-63b2c930e259" />
 <img width="128" height="128" alt="TourSmash" src="https://github.com/user-attachments/assets/d5f3ac05-a66a-4cf0-9b5b-df5245e764d8" />
 
