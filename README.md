@@ -15,8 +15,10 @@
 <img width="128" height="128" alt="Tour (1)" src="https://github.com/user-attachments/assets/5e24f7c9-1de1-4e37-8247-11df8055b2d1" />
 
 ## Minotaur Attack
-<img width="128" height="128" alt="Tour" src="https://github.com/user-attachments/assets/130d8d1b-0184-4837-87ac-63b2c930e259" />
-<img width="128" height="128" alt="TourSmash" src="https://github.com/user-attachments/assets/d5f3ac05-a66a-4cf0-9b5b-df5245e764d8" />
+<img width="64" height="64" alt="Tour (1)" src="https://github.com/user-attachments/assets/0acb868d-a18c-41a1-ac2c-b20772772c7a" />
+
+<img width="64" height="64" alt="TourSmash (1)" src="https://github.com/user-attachments/assets/affe6585-158e-40b7-af08-ad1aa951c82f" />
+
 
 # Core action: What will they do repeatedly?
 ## The player will be running away from non player characters and is also collecting resources to fight the boss.
