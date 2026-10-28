@@ -24,6 +24,8 @@
 
 <img width="128" height="128" alt="TourCharge" src="https://github.com/user-attachments/assets/421cb103-2a9d-43c1-9466-5836e0052d51" />
 
+## GUI mockup/concept
+<img width="702" height="482" alt="GUImockup" src="https://github.com/user-attachments/assets/6f7676c7-deee-4339-a1c1-7db520ec9a5a" />
 
 # Core action: What will they do repeatedly?
 ## The player will be running away from non player characters and is also collecting resources to fight the boss.
