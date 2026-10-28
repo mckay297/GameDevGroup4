@@ -19,6 +19,8 @@
 
 <img width="128" height="128" alt="TourSmash (1)" src="https://github.com/user-attachments/assets/affe6585-158e-40b7-af08-ad1aa951c82f" />
 
+<img width="1024" height="1024" alt="TourCharge" src="https://github.com/user-attachments/assets/421cb103-2a9d-43c1-9466-5836e0052d51" />
+
 
 # Core action: What will they do repeatedly?
 ## The player will be running away from non player characters and is also collecting resources to fight the boss.
