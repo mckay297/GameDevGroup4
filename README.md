@@ -13,7 +13,8 @@
 ## The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
 <img width="64" height="128" alt="Player" src="https://github.com/user-attachments/assets/d212d319-a49c-47c2-9494-004cbb5579bf" />
 
-<img width="128" height="128" alt="Tour (2)" src="https://github.com/user-attachments/assets/ff1ce221-1c5b-45e7-be72-70792b915cdb" />
+<img width="128" height="128" alt="Tour (3)" src="https://github.com/user-attachments/assets/5e1a856a-3d7a-4c83-b6ba-80c13add63d8" />
+
 
 
 ## Minotaur Attack Concepts
