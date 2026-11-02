@@ -18,6 +18,9 @@
 
 <img width="128" height="128" alt="Tour (3)" src="https://github.com/user-attachments/assets/5e1a856a-3d7a-4c83-b6ba-80c13add63d8" />
 
+<img width="128" height="128" alt="Sword" src="https://github.com/user-attachments/assets/8e5e9fcd-14e8-4357-b209-91305850d707" />
+
+
 
 ## Minotaur Attack Concepts
 <img width="128" height="128" alt="Tour (1)" src="https://github.com/user-attachments/assets/0acb868d-a18c-41a1-ac2c-b20772772c7a" />
