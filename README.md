@@ -56,7 +56,8 @@
 
 
 ## Class diagram
-<img width="523" height="511" alt="Screenshot 2026-11-02 at 11 49 17 AM" src="https://github.com/user-attachments/assets/73861fd4-ce90-4352-9e49-b1a127491e88" />
+<img width="592" height="620" alt="Screenshot 2026-11-02 at 12 21 39 PM" src="https://github.com/user-attachments/assets/0f2f78f7-7974-432e-a002-0ca9413e6181" />
+
 
 
 ## By David Madden
