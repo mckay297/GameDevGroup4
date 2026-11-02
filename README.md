@@ -29,7 +29,7 @@
 <img width="128" height="128" alt="Minotaur in the maze (1)" src="https://github.com/user-attachments/assets/0551d007-cafd-4b11-8e47-48e45a9ca900" />
 
 ## Snake NPC enemy concepts: Animation and attack
-<img width="2400" height="2400" alt="New Piskel" src="https://github.com/user-attachments/assets/5444e6db-caf6-4e6d-bcb8-40be37ad8696" />
+<img width="128" height="128" alt="New Piskel" src="https://github.com/user-attachments/assets/5444e6db-caf6-4e6d-bcb8-40be37ad8696" />
 
 
 
