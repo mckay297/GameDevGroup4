@@ -8,7 +8,7 @@
 
 ## The main player in our game would be Theseus because he killed the Minotaur in the story.
 
-# Player Concepts
+# Player Concepts/Game Concepts
 <img width="64" height="128" alt="Theseus" src="https://github.com/user-attachments/assets/04b784c0-36a2-414f-8e43-22cbcafd8101" />
 
 <img width="128" height="128" alt="Tour (3)" src="https://github.com/user-attachments/assets/5e1a856a-3d7a-4c83-b6ba-80c13add63d8" />
