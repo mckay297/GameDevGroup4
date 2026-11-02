@@ -25,6 +25,9 @@
 <img width="128" height="128" alt="TourSmash (1)" src="https://github.com/user-attachments/assets/affe6585-158e-40b7-af08-ad1aa951c82f" />
 
 <img width="128" height="128" alt="TourCharge" src="https://github.com/user-attachments/assets/421cb103-2a9d-43c1-9466-5836e0052d51" />
+## Minotaur in the middle
+<img width="128" height="128" alt="Minotaur in the maze" src="https://github.com/user-attachments/assets/0e234390-3a33-4efa-ac13-9af299aa53cd" />
+
 
 ## GUI mockup/concept
 <img width="702" height="482" alt="GUImockup" src="https://github.com/user-attachments/assets/6f7676c7-deee-4339-a1c1-7db520ec9a5a" />
