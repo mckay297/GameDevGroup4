@@ -31,6 +31,15 @@
 # Goal: What are they trying to accomplish?
 ## The player will be running away from non player characters and is also collecting resources to fight the boss. The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
 
+# Core action: What will they do repeatedly?
+## The player will be running away from non player characters and is also collecting resources to fight the boss.
+
+# Challenge: What makes accomplishing the goal interesting?
+## If the player dies to an enemy or the Minotaur, a "You Were Slain" message will appear on the screen. If the Player slays the Minotaur, a "You Win. You have defeated the minotaur, and the land of Crete is free" will appear. If you collect a currency, you will gain 1 in the currency area.
+
+# Scope: What is the smallest playable version of this idea?
+## A maze where you go around and attack enemies. 
+
 
 ## GUI mockup/concept
 <img width="702" height="482" alt="GUImockup" src="https://github.com/user-attachments/assets/6f7676c7-deee-4339-a1c1-7db520ec9a5a" />
@@ -43,11 +52,6 @@
 
 ## By David Madden
 
-# Core action: What will they do repeatedly?
-## The player will be running away from non player characters and is also collecting resources to fight the boss.
-# Challenge: What makes accomplishing the goal interesting?
-## If the player dies to an enemy or the Minotaur, a "You Were Slain" message will appear on the screen. If the Player slays the Minotaur, a "You Win. You have defeated the minotaur, and the land of Crete is free" will appear. If you collect a currency, you will gain 1 in the currency area.
-# Scope: What is the smallest playable version of this idea?
-## A maze where you go around and attack enemies. 
+
 
 # Game Pitch [Thesus and the Minotour] (https://docs.google.com/document/d/1ZszcVAKviLKmkxUt7jawMaNwTwpzuJ0M8KF1sLm6wnA/edit?usp=sharing)
