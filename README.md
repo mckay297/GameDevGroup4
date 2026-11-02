@@ -15,6 +15,7 @@
 
 <img width="128" height="128" alt="Sword" src="https://github.com/user-attachments/assets/8e5e9fcd-14e8-4357-b209-91305850d707" />
 
+<img width="128" height="128" alt="Pot" src="https://github.com/user-attachments/assets/657de519-3a93-4404-81f2-7b03bda4a6d4" />
 
 
 ## Minotaur Attack Concepts
