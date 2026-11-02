@@ -1,3 +1,4 @@
+
 # GameDevGroup4
 # Game Title: Labyrinthine
 # Game inspiration idea
@@ -11,7 +12,7 @@
 ## The player will be running away from non player characters and is also collecting resources to fight the boss.
 
 ## The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
-<img width="64" height="128" alt="Player (1)" src="https://github.com/user-attachments/assets/dcc63a4d-68c6-4d80-a3fc-0f0c64e9192f" />
+<img width="64" height="128" alt="Theseus" src="https://github.com/user-attachments/assets/04b784c0-36a2-414f-8e43-22cbcafd8101" />
 
 
 <img width="128" height="128" alt="Tour (3)" src="https://github.com/user-attachments/assets/5e1a856a-3d7a-4c83-b6ba-80c13add63d8" />
