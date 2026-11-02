@@ -25,7 +25,7 @@
 
 <img width="128" height="128" alt="TourCharge" src="https://github.com/user-attachments/assets/421cb103-2a9d-43c1-9466-5836e0052d51" />
 
-## Minotaur in the middle
+## Minotaur in the middle of map
 <img width="128" height="128" alt="Minotaur in the maze (1)" src="https://github.com/user-attachments/assets/0551d007-cafd-4b11-8e47-48e45a9ca900" />
 
 ## Snake NPC enemy concepts: Animation and attack
