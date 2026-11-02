@@ -17,6 +17,7 @@
 
 <img width="128" height="128" alt="Pot" src="https://github.com/user-attachments/assets/657de519-3a93-4404-81f2-7b03bda4a6d4" />
 
+<img width="126" height="126" alt="Arch" src="https://github.com/user-attachments/assets/6e192a30-b143-4b2c-a2d1-b646a013e0dc" />
 
 ## Minotaur Attack Concepts
 <img width="128" height="128" alt="Tour (1)" src="https://github.com/user-attachments/assets/0acb868d-a18c-41a1-ac2c-b20772772c7a" />
