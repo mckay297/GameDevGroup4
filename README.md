@@ -41,10 +41,12 @@
 ## A maze where you go around and attack enemies. 
 
 
+
 ## GUI mockup/concept
 <img width="702" height="482" alt="GUImockup" src="https://github.com/user-attachments/assets/6f7676c7-deee-4339-a1c1-7db520ec9a5a" />
 
 ### Made by Marz
+
 
 ## Class diagram
 <img width="523" height="511" alt="Screenshot 2026-11-02 at 11 49 17 AM" src="https://github.com/user-attachments/assets/73861fd4-ce90-4352-9e49-b1a127491e88" />
@@ -54,4 +56,4 @@
 
 
 
-# Game Pitch [Thesus and the Minotour] (https://docs.google.com/document/d/1ZszcVAKviLKmkxUt7jawMaNwTwpzuJ0M8KF1sLm6wnA/edit?usp=sharing)
+# Game Pitch [Labyrinthine] By McKay Essig(https://docs.google.com/document/d/1ZszcVAKviLKmkxUt7jawMaNwTwpzuJ0M8KF1sLm6wnA/edit?usp=sharing)
