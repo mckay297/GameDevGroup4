@@ -59,8 +59,8 @@
 
 
 ## GUI mockup/concept
-<img width="702" height="482" alt="GUImockup" src="https://github.com/user-attachments/assets/6f7676c7-deee-4339-a1c1-7db520ec9a5a" />
 
+<img width="700" height="500" alt="GUI" src="https://github.com/user-attachments/assets/7c4034a6-cfee-47a7-9df5-c2e52b193e86" />
 ### By Marz
 
 
