@@ -28,6 +28,11 @@
 ## Minotaur in the middle
 <img width="128" height="128" alt="Minotaur in the maze (1)" src="https://github.com/user-attachments/assets/0551d007-cafd-4b11-8e47-48e45a9ca900" />
 
+## Snake NPC enemy concepts: Animation and attack
+<img width="2400" height="2400" alt="New Piskel" src="https://github.com/user-attachments/assets/5444e6db-caf6-4e6d-bcb8-40be37ad8696" />
+
+
+
 
 # Goal: What are they trying to accomplish?
 ## The player will be running away from non player characters and is also collecting resources to fight the boss. The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
