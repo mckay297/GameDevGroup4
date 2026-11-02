@@ -8,11 +8,6 @@
 
 ## The main player in our game would be Theseus because he killed the Minotaur in the story.
 
-# Goal: What are they trying to accomplish?
-## The player will be running away from non player characters and is also collecting resources to fight the boss.
-
-## The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
-
 # Player Concepts
 <img width="64" height="128" alt="Theseus" src="https://github.com/user-attachments/assets/04b784c0-36a2-414f-8e43-22cbcafd8101" />
 
@@ -33,6 +28,8 @@
 <img width="128" height="128" alt="Minotaur in the maze (1)" src="https://github.com/user-attachments/assets/0551d007-cafd-4b11-8e47-48e45a9ca900" />
 
 
+# Goal: What are they trying to accomplish?
+## The player will be running away from non player characters and is also collecting resources to fight the boss. The goal that the player is trying to accomplish is to get through the maze and Kill the Minotaur at the end.
 
 
 ## GUI mockup/concept
