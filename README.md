@@ -19,6 +19,9 @@
 
 <img width="126" height="126" alt="Arch" src="https://github.com/user-attachments/assets/6e192a30-b143-4b2c-a2d1-b646a013e0dc" />
 
+<img width="128" height="128" alt="SwordSlash" src="https://github.com/user-attachments/assets/873e1c46-9a0d-4e39-a3c8-f670207e43a1" />
+
+
 ## Minotaur Attack Concepts
 <img width="128" height="128" alt="Tour (1)" src="https://github.com/user-attachments/assets/0acb868d-a18c-41a1-ac2c-b20772772c7a" />
 
