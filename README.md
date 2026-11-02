@@ -46,7 +46,7 @@
 ## GUI mockup/concept
 <img width="702" height="482" alt="GUImockup" src="https://github.com/user-attachments/assets/6f7676c7-deee-4339-a1c1-7db520ec9a5a" />
 
-### Made by Marz
+### By Marz
 
 
 ## Class diagram
@@ -57,4 +57,5 @@
 
 
 
-# Game Pitch [Labyrinthine] By McKay Essig(https://docs.google.com/document/d/1ZszcVAKviLKmkxUt7jawMaNwTwpzuJ0M8KF1sLm6wnA/edit?usp=sharing)
+# Game Pitch [Labyrinthine] By McKay Essig
+(https://docs.google.com/document/d/1ZszcVAKviLKmkxUt7jawMaNwTwpzuJ0M8KF1sLm6wnA/edit?usp=sharing)
