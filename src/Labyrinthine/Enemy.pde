@@ -11,7 +11,7 @@ class Enemy{
       w = 50
       h = 50
       health = 100
-      e1 = loadImage("")
+      e1 = loadImage("enemy.pde")
     
     }
   // Member Methods
