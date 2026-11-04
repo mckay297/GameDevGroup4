@@ -1,20 +1,26 @@
-// Made by Marz Meyer, McKay Essig, David Madden, Connor DeWeerd
-import gifAnimation.*;
-Player p1;
-Enemy e1;
-Boss b1;
+// Made by McKay Essig, David Madden, Marz Meyer, Connor Deweerd
+import gifAnimation.*; 
 
-void setup() {
-size (500,800);
-p1 = new Player (100,200);
-e1 = new Enemy (300,300);
-b1 = new Boss(this); 
+class Boss { 
+    // 1. Member Variables
+    int x, y, health;
+    PImage cow1; 
+    Gif loopingGif; 
+
+    // 2. Constructor
+    Boss(PApplet parent) { 
+        imageMode(CENTER);
+        this.x = parent.width/2;
+        this.y = parent.height/2;
+        this.health = 1000;
+        
+        this.loopingGif = new Gif(parent, "Minotaurinthemaze.gif");
+        this.loopingGif.loop(); 
+    }
+
+    // 3. Member Methods
+    void display(PApplet parent) {
+       
+        parent.image(loopingGif, this.x, this.y);
+    }
 }
-
-void draw() {
-backround(127);
-p1.display();
-e1.display();
- b1.display(this); 
-}
-
