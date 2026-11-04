@@ -5,7 +5,7 @@ class Player{
   PImage p1;
 
 // Constructor
-Player(int x, iny y) {
+Player(int x, int y) {
   this.x = x;
   this.y = y;
   w = 50 
@@ -16,7 +16,7 @@ Player(int x, iny y) {
 
   // Member Methods 
   void display() {
-//TODO: replce rectangkle with PImage
+//TODO: replce rectangle with PImage
 // image(p1,x,y)
 fill(222,44,63);
 rect(x,y,w,h);
