@@ -15,7 +15,13 @@ Player(int x, iny y) {
 }
 
   // Member Methods 
-  void display() {}
+  void display() {
+//TODO: replce rectangkle with PImage
+// image(p1,x,y)
+fill(222,44,63);
+rect(x,y,w,h);
+
+  }
   void move() {}
   void attack() {}
   void Jump() {}
