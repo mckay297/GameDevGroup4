@@ -8,10 +8,10 @@ class Enemy{
     Enemy(int x, int y){
       this.x = x;
       this.y = y;
-      w = 50
-      h = 50
-      health = 100
-      e1 = loadImage("enemy.pde")
+      w = 50;
+      h = 50;
+      health = 100;
+      e1 = loadImage("enemy.pde");
     
     }
   // Member Methods
