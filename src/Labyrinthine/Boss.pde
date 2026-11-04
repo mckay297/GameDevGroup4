@@ -1,27 +1,25 @@
-// David Madden
-class Boss{
-// Member Variable
-import Minotaurinthemaze.gif;
-// Note: I don't know how to do animations, so I tryed to do it but it might not work
-int x, y, health;
-PImage cow1;
-cow1 loopingGif;
-//Constructor
-this.x=width/2;
-this.y= height/2;
+import gifAnimation.*; 
 
-health=1000
-cow1 = loadImage(loopingGif, width/2, height/2);
+class Boss { 
+    // 1. Member Variables
+    int x, y, health;
+    PImage cow1; 
+    Gif loopingGif; 
 
-  loopingGif = new Gif(this, "your_gif_file.gif");
-  loopingGif.loop(); // Start playing/looping the GIF
+    // 2. Constructor
+    Boss(PApplet parent) { 
+        imageMode(CENTER);
+        this.x = parent.width/2;
+        this.y = parent.height/2;
+        this.health = 1000;
+        
+        this.loopingGif = new Gif(parent, "Minotaurinthemaze.gif");
+        this.loopingGif.loop(); 
+    }
 
-// Member Methods
-void display() {}
-void engage() {}
-void damage() {}
-boolean attack() {}
-
+    // 3. Member Methods
+    void display(PApplet parent) {
+       
+        parent.image(loopingGif, this.x, this.y);
+    }
 }
-
-
