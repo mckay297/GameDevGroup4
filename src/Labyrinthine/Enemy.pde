@@ -16,5 +16,16 @@ class Enemy{
       
     }
   // Member Methods
+    void display() {
+      fill(222,44,63);
+      rect(x,y,w,h);
+
+    }
+    void move();
+    void attack();
+    void fire();
+    void jump();
+
+
 
 }
