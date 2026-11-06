@@ -26,6 +26,3 @@ class Enemy{
     void jump(){}
 }
 
-
-
-}
