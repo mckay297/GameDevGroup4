@@ -1,7 +1,6 @@
     // David Madden
 import gifAnimation.*; 
-
-class Boss { 
+class Boss{ 
     // 1. Member Variables
     int x, y, health;
     PImage cow1; 
