@@ -1,3 +1,4 @@
+    // David Madden
 import gifAnimation.*; 
 
 class Boss { 
