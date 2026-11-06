@@ -8,16 +8,16 @@ class Player{
 Player(int x, int y) {
   this.x = x;
   this.y = y;
-  w = 50 
-  h = 50
+  w = 50;
+  h = 50;
   health = 100;
-  p1 = loadImage("")
+  p1 = loadImage("");
 }
 
   // Member Methods 
   void display() {
 //TODO: replce rectangle with PImage
-// image(p1,x,y)
+// image(p1,x,y);
 fill(222,44,63);
 rect(x,y,w,h);
 
