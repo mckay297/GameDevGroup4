@@ -8,8 +8,8 @@ class MazeGen{
 MazeGen(int x, int y) {
   this.x = x;
   this.y = y;
-  w = 50 
-  h = 50
+  w = 50;
+  h = 50;
   health = 100;
   mg1 = loadImage("")
 }
