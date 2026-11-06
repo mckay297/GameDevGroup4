@@ -20,10 +20,11 @@ class Enemy{
       rect(x,y,w,h);
 
     }
-    void move();
-    void attack();
-    void fire();
-    void jump();
+    void move(){}
+    void attack(){}
+    void fire(){}
+    void jump(){}
+}
 
 
 
