@@ -2,7 +2,7 @@
 class MazeGen{
   // Member Variables
   int x,y,w,h,health;
-  PImage p1;
+  PImage mg1;
 
 // Constructor
 MazeGen(int x, int y) {
@@ -11,7 +11,7 @@ MazeGen(int x, int y) {
   w = 50;
   h = 50;
   health = 100;
-  mg1 = loadImage("")
+  mg1 = loadImage("");
 }
 
   // Member Methods 
