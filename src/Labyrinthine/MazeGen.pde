@@ -1,4 +1,4 @@
-// McKay Essig
+// Everyone
 class MazeGen{
   // Member Variables
   int x,y,w,h,health;
