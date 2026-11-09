@@ -11,15 +11,15 @@ Player(int x, int y) {
   w = 50;
   h = 50;
   health = 100;
-  p1 = loadImage("");
+  p1 = loadImage("Theseus.png");
 }
 
   // Member Methods 
   void display() {
 //TODO: replce rectangle with PImage
-// image(p1,x,y);
-fill(222,44,63);
-rect(x,y,w,h);
+ image(p1,x,y,42,64);
+//fill(222,44,63);
+//rect(x,y,w,h);
 
   }
   void move() {}
