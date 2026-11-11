@@ -34,7 +34,6 @@
 
 
 
-## Needs GifAimation
 ## Minotaur in the middle of map
 <img width="128" height="128" alt="Minotaur in the maze (1)" src="https://github.com/user-attachments/assets/0551d007-cafd-4b11-8e47-48e45a9ca900" />
 
