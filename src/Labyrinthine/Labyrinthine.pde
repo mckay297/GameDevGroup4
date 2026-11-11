@@ -1,18 +1,15 @@
 // Made by McKay Essig, David Madden, Marz Meyer, Connor Deweerd
 import gifAnimation.*;
 Player p1;
+MazeGen maze;
 int px, py;
-Gif gifRest, gifUp, gifDown, gifLeft, gifRight;
 float speed, stamina;
 boolean upPressed, downPressed, leftPressed, rightPressed, sprinting, isStarted;
 PImage startScreen;
 PImage guiOverlay;
+Gif gifRest, gifUp, gifDown, gifLeft, gifRight;
+
 void setup() {
-  gifRest  = new Gif(this, "Theseus.gif");
-  gifUp    = new Gif(this, "TheseusBak.gif");
-  gifDown  = new Gif(this, "TheseusFwd.gif");
-  gifLeft  = new Gif(this, "TheseusLeft.gif");
-  gifRight = new Gif(this, "TheseusRight.gif");
   isStarted = false;
   size(1080, 720);
   frameRate(30);
@@ -21,60 +18,85 @@ void setup() {
   startScreen = loadImage("Labyrinthine.png");
   guiOverlay = loadImage("GUI.png");
   p1 = new Player(width/2, height/2, this);
+
+  gifRest  = new Gif(this, "Theseus.gif");
+  gifUp    = new Gif(this, "TheseusBak.gif");
+  gifDown  = new Gif(this, "TheseusFwd.gif");
+  gifLeft  = new Gif(this, "TheseusLeft.gif");
+  gifRight = new Gif(this, "TheseusRight.gif");
+
+  mazegenerate();
+}
+
+// Builds a new random maze and puts the player at the start
+void mazegenerate() {
+  maze = new MazeGen(25, 25, 80);   // 25x25 cells, 80px per tile
+  maze.generate();
+  p1.x = int(maze.startX());
+  p1.y = int(maze.startY());
 }
 
 void draw() {
   imageMode(CENTER);
   background(120, 120, 120);
-  p1.display();
+
   // Sprint System
   if (sprinting == true) {
     speed = 8;
     stamina -= .8;
   } else {
-    if (stamina <100) {
+    if (stamina < 100) {
       stamina += .5;
     }
     speed = 3;
   }
-  if (stamina<0) {
+  if (stamina < 0) {
     stamina = 0;
     speed = 3;
   }
-  //Movement management
-  if (upPressed)    p1.y -= speed;
-  if (downPressed)  p1.y += speed;
-  if (leftPressed)  p1.x -= speed;
-  if (rightPressed) p1.x += speed;
-  //player direction management
-  //p1.pDir is the char for direction, r=resting, wasd=up/down/left/right.
-  p1.picon.loop();
-  //if (p1.pDir == 'r') {
-  //  p1.picon = new Gif(this, "Theseus.gif");
-  //} else if (p1.pDir == 'w') {
-  //  p1.picon = new Gif(this, "TheseusBak.gif");
-  //} else if (p1.pDir == 's') {
-  //  p1.picon = new Gif(this, "TheseusFwd.gif");
-  //}else if (p1.pDir == 'a') {
-  //  p1.picon = new Gif(this, "TheseusLeft.gif");
-  //}else if (p1.pDir == 'd') {
-  //  p1.picon = new Gif(this, "TheseusRight.gif");
-  //}
-  Gif target = gifRest;
-if      (p1.pDir == 'w') target = gifUp;
-else if (p1.pDir == 's') target = gifDown;
-else if (p1.pDir == 'a') target = gifLeft;
-else if (p1.pDir == 'd') target = gifRight;
 
-if (p1.picon != target) {
-  p1.picon.stop();
-  p1.picon = target;
-  p1.picon.loop();
-}
-  //Startscreen
+  // Movement management (with wall collision, each axis separately so you slide along walls)
+  if (isStarted) {
+    int step = int(speed);
+    int dx = 0, dy = 0;
+    if (upPressed)    dy -= step;
+    if (downPressed)  dy += step;
+    if (leftPressed)  dx -= step;
+    if (rightPressed) dx += step;
+
+    if (!maze.hitsWall(p1.x + dx, p1.y)) p1.x += dx;
+    if (!maze.hitsWall(p1.x, p1.y + dy)) p1.y += dy;
+
+    // reached the exit -> new maze
+    if (maze.atExit(p1.x, p1.y)) {
+      mazegenerate();
+    }
+  }
+
+  // player animation (swap between preloaded gifs, never create new ones here)
+  Gif target = gifRest;
+  if      (p1.pDir == 'w') target = gifUp;
+  else if (p1.pDir == 's') target = gifDown;
+  else if (p1.pDir == 'a') target = gifLeft;
+  else if (p1.pDir == 'd') target = gifRight;
+
+  if (p1.picon != target) {
+    p1.picon.stop();
+    p1.picon = target;
+    p1.picon.loop();
+  }
+
+  // CAMERA: shift the world so the player lands in the middle of the screen
+  pushMatrix();
+  translate(width/2 - p1.x, height/2 - p1.y);
+  maze.display(p1.x, p1.y);
+  p1.display();
+  popMatrix();
+
+  // Startscreen / UI (drawn after popMatrix so it stays fixed on screen)
   if (isStarted == false) {
     image(startScreen, width/2, height/2);
-  } else {//UI
+  } else {
     image(guiOverlay, width/2, height/2, width, height);
     fill(256, 0, 0);
     rect(500, 83, p1.health*1.75, 45);
@@ -82,6 +104,7 @@ if (p1.picon != target) {
     rect(500, 20, stamina*1.75, 40);
   }
 }
+
 //Keybinds
 void keyPressed() {
   if (key == 'w' || key == 'W') {
@@ -105,7 +128,6 @@ void keyPressed() {
 }
 
 void keyReleased() {
-p1.pDir = 'r';
   if (key == 'w' || key == 'W') {
     upPressed = false;
   } else if (key == 's' || key == 'S') {
@@ -121,11 +143,13 @@ p1.pDir = 'r';
     }
   }
 }
+
 void mousePressed() {
   println("mouseX," + mouseX + "mouseY," + mouseY);
-  if (mouseX > 200 && mouseY > 207 && mouseX <525 && mouseY <333) {
+  if (mouseX > 200 && mouseY > 207 && mouseX < 525 && mouseY < 333) {
     if (isStarted == false) {
       isStarted = true;
+      mazegenerate();   // fresh maze when the game starts
     }
   }
 }
