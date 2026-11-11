@@ -128,6 +128,7 @@ void keyPressed() {
 }
 
 void keyReleased() {
+p1.pDir = 'r';
   if (key == 'w' || key == 'W') {
     upPressed = false;
   } else if (key == 's' || key == 'S') {
