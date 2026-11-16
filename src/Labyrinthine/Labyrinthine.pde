@@ -94,7 +94,9 @@ void draw() {
   pushMatrix();
   translate(width/2 - p1.x, height/2 - p1.y);
   maze.display(p1.x, p1.y);
-  minotaur.display();
+  if (minotaur.health > 0) {
+    minotaur.display();
+  }
   p1.display();
   popMatrix();
 
@@ -102,6 +104,7 @@ void draw() {
   if (isStarted == false) {
     image(startScreen, width/2, height/2);
   } else {
+    noStroke();
     image(guiOverlay, width/2, height/2, width, height);
     fill(256, 0, 0);
     rect(500, 83, p1.health*1.75, 45);
@@ -110,7 +113,7 @@ void draw() {
   }
 }
 
-//Keybinds
+// Keybinds
 void keyPressed() {
   if (key == 'w' || key == 'W') {
     upPressed = true;
@@ -152,10 +155,26 @@ void keyReleased() {
 
 void mousePressed() {
   println("mouseX," + mouseX + "mouseY," + mouseY);
-  if (mouseX > 200 && mouseY > 207 && mouseX < 525 && mouseY < 333) {
-    if (isStarted == false) {
+  
+  if (isStarted == false) {
+    // Check start button bounds
+    if (mouseX > 200 && mouseY > 207 && mouseX < 525 && mouseY < 333) {
       isStarted = true;
       mazegenerate();   // fresh maze when the game starts
+    }
+  } else {
+    // Left Click to swing sword toward the mouse cursor
+    if (mouseButton == LEFT) {
+      // Because Theseus is centered on screen at (width/2, height/2),
+      // atan2 gives the exact angle toward the mouse click
+      float angleToMouse = atan2(mouseY - height/2, mouseX - width/2);
+      p1.attack(angleToMouse);
+      
+      // Deal 50 damage if the Minotaur is within 250 pixels
+      if (minotaur.health > 0 && p1.checkHit(minotaur.x, minotaur.y, 250)) {
+        minotaur.health -= 50;
+        println("Minotaur hit! Health: " + minotaur.health);
+      }
     }
   }
 }
