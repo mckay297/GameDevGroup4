@@ -81,7 +81,6 @@ class MazeGen {
   }
 
   // Player hitbox: a 28x28 box around the player's feet.
-  // Pass in the player's x/y (sprite center).
   boolean hitsWall(float px, float py) {
     float half = 14;
     float cy = py + 16;
