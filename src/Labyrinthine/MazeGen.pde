@@ -1,4 +1,4 @@
-// McKay Essig
+// Marz
 class MazeGen {
   // Member Variables
   int cols, rows;     // maze size in cells
