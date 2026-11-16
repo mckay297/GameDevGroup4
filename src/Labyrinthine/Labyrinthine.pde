@@ -3,12 +3,14 @@ import gifAnimation.*;
 Player p1;
 Boss minotaur;
 MazeGen maze;
+ArrayList<Enemy> enemies;
 int px, py;
 float speed, stamina;
 boolean upPressed, downPressed, leftPressed, rightPressed, sprinting, isStarted;
 PImage startScreen;
 PImage guiOverlay;
 Gif gifRest, gifUp, gifDown, gifLeft, gifRight;
+Gif snakeIdle, snakeAttack;
 
 void setup() {
   isStarted = false;
@@ -27,10 +29,17 @@ void setup() {
   gifLeft  = new Gif(this, "TheseusLeft.gif");
   gifRight = new Gif(this, "TheseusRight.gif");
 
+  // Preload snake idle and attack animations once
+  snakeIdle   = new Gif(this, "snakeIdle.gif");
+  snakeAttack = new Gif(this, "snakeAttack.gif");
+  snakeIdle.loop();
+  snakeAttack.loop();
+
+  enemies = new ArrayList<Enemy>();
   mazegenerate();
 }
 
-// Builds a new random maze and puts the player at the start and Minotaur in the center
+// Builds a new random maze and puts the player at the start, Minotaur in the center, and snakes along paths
 void mazegenerate() {
   maze = new MazeGen(25, 25, 80);   // 25x25 cells, 80px per tile
   maze.generate();
@@ -38,6 +47,27 @@ void mazegenerate() {
   p1.y = int(maze.startY());
   minotaur.x = int(maze.centerX());
   minotaur.y = int(maze.centerY());
+  minotaur.health = 1000;
+
+  // Spawn snakes randomly along open floor tiles
+  enemies.clear();
+  int midX = maze.gw / 2;
+  int midY = maze.gh / 2;
+
+  for (int gx = 1; gx < maze.gw - 1; gx++) {
+    for (int gy = 1; gy < maze.gh - 1; gy++) {
+      boolean isStart    = (gx == 1 && gy == 1);
+      boolean isExit     = (gx == maze.gw - 2 && gy == maze.gh - 2);
+      boolean isBossRoom = (abs(gx - midX) <= 1 && abs(gy - midY) <= 1);
+      if (isStart || isExit || isBossRoom) continue;
+
+      if (maze.grid[gx][gy] == 0 && random(1) < 0.06) {
+        int spawnX = int((gx + 0.5) * maze.tile);
+        int spawnY = int((gy + 0.5) * maze.tile);
+        enemies.add(new Enemy(spawnX, spawnY, snakeIdle, snakeAttack));
+      }
+    }
+  }
 }
 
 void draw() {
@@ -71,6 +101,16 @@ void draw() {
     if (!maze.hitsWall(p1.x + dx, p1.y)) p1.x += dx;
     if (!maze.hitsWall(p1.x, p1.y + dy)) p1.y += dy;
 
+    // Update snakes (switches to attack animation when player gets near)
+    for (int i = enemies.size() - 1; i >= 0; i--) {
+      Enemy e = enemies.get(i);
+      if (e.health <= 0) {
+        enemies.remove(i);
+      } else {
+        e.update(p1, maze);
+      }
+    }
+
     // reached the exit -> new maze
     if (maze.atExit(p1.x, p1.y)) {
       mazegenerate();
@@ -94,6 +134,9 @@ void draw() {
   pushMatrix();
   translate(width/2 - p1.x, height/2 - p1.y);
   maze.display(p1.x, p1.y);
+  for (Enemy e : enemies) {
+    e.display();
+  }
   if (minotaur.health > 0) {
     minotaur.display();
   }
@@ -136,7 +179,6 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  p1.pDir = 'r';
   if (key == 'w' || key == 'W') {
     upPressed = false;
   } else if (key == 's' || key == 'S') {
@@ -150,6 +192,9 @@ void keyReleased() {
     if (keyCode == SHIFT) {
       sprinting = false;
     }
+  }
+  if (!upPressed && !downPressed && !leftPressed && !rightPressed) {
+    p1.pDir = 'r';
   }
 }
 
@@ -165,8 +210,6 @@ void mousePressed() {
   } else {
     // Left Click to swing sword toward the mouse cursor
     if (mouseButton == LEFT) {
-      // Because Theseus is centered on screen at (width/2, height/2),
-      // atan2 gives the exact angle toward the mouse click
       float angleToMouse = atan2(mouseY - height/2, mouseX - width/2);
       p1.attack(angleToMouse);
       
@@ -174,6 +217,14 @@ void mousePressed() {
       if (minotaur.health > 0 && p1.checkHit(minotaur.x, minotaur.y, 250)) {
         minotaur.health -= 50;
         println("Minotaur hit! Health: " + minotaur.health);
+      }
+
+      // Deal 50 damage to any snake within 110 pixels
+      for (Enemy e : enemies) {
+        if (e.health > 0 && p1.checkHit(e.x, e.y, 110)) {
+          e.health -= 50;
+          println("Snake hit! Health: " + e.health);
+        }
       }
     }
   }
