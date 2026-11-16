@@ -1,25 +1,25 @@
 // David Madden
-import gifAnimation.*; 
+import gifAnimation.*;  
 
-class Boss { 
+class Boss {  
   int x, y, health;
   int p;
-  Gif loopingGif; 
+  Gif loopingGif;  
 
-  Boss(int x, int y, PApplet parent) { 
+  Boss(int x, int y, PApplet parent) {  
     this.x = x;
     this.y = y;
     this.health = 1000;
     this.p = 0;
     
     this.loopingGif = new Gif(parent, "Minotaurinthemaze.gif");
-    this.loopingGif.loop(); 
+    this.loopingGif.loop();  
   }
 
   void display() {
     if (loopingGif != null) {
       imageMode(CENTER);
-      image(loopingGif, x, y, 500, 500); 
+      image(loopingGif, x, y, 500, 500);  
     }
   }
 }
