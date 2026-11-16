@@ -30,7 +30,7 @@ void setup() {
   gifRight = new Gif(this, "TheseusRight.gif");
 
   // Preload snake idle and attack animations once
-  snakeIdle   = new Gif(this, "snakeIdle.gif");
+  snakeIdle   = new Gif(this, "enemy.png");
   snakeAttack = new Gif(this, "snakeAttack.gif");
   snakeIdle.loop();
   snakeAttack.loop();
