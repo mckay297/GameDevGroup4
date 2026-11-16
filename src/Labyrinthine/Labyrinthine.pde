@@ -1,6 +1,7 @@
 // Made by McKay Essig, David Madden, Marz Meyer, Connor Deweerd
 import gifAnimation.*;
 Player p1;
+Boss minotaur;
 MazeGen maze;
 int px, py;
 float speed, stamina;
@@ -18,6 +19,7 @@ void setup() {
   startScreen = loadImage("Labyrinthine.png");
   guiOverlay = loadImage("GUI.png");
   p1 = new Player(width/2, height/2, this);
+  minotaur = new Boss(0, 0, this);
 
   gifRest  = new Gif(this, "Theseus.gif");
   gifUp    = new Gif(this, "TheseusBak.gif");
@@ -28,12 +30,14 @@ void setup() {
   mazegenerate();
 }
 
-// Builds a new random maze and puts the player at the start
+// Builds a new random maze and puts the player at the start and Minotaur in the center
 void mazegenerate() {
   maze = new MazeGen(25, 25, 80);   // 25x25 cells, 80px per tile
   maze.generate();
   p1.x = int(maze.startX());
   p1.y = int(maze.startY());
+  minotaur.x = int(maze.centerX());
+  minotaur.y = int(maze.centerY());
 }
 
 void draw() {
@@ -90,6 +94,7 @@ void draw() {
   pushMatrix();
   translate(width/2 - p1.x, height/2 - p1.y);
   maze.display(p1.x, p1.y);
+  minotaur.display();
   p1.display();
   popMatrix();
 
@@ -128,7 +133,7 @@ void keyPressed() {
 }
 
 void keyReleased() {
-p1.pDir = 'r';
+  p1.pDir = 'r';
   if (key == 'w' || key == 'W') {
     upPressed = false;
   } else if (key == 's' || key == 'S') {
