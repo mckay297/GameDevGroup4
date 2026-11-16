@@ -63,6 +63,15 @@ class MazeGen {
         grid[x][y] = 0;
       }
     }
+
+    // Carve out a 3x3 room in the middle of the maze for the Minotaur
+    int midX = gw / 2;
+    int midY = gh / 2;
+    for (int dx = -1; dx <= 1; dx++) {
+      for (int dy = -1; dy <= 1; dy++) {
+        grid[midX + dx][midY + dy] = 0;
+      }
+    }
   }
 
   // Is this tile a wall? (outside the maze counts as wall)
@@ -88,6 +97,14 @@ class MazeGen {
   }
   float startY() { 
     return tile * 1.5;
+  }
+
+  // World position of the center of the maze
+  float centerX() {
+    return (gw / 2 + 0.5) * tile;
+  }
+  float centerY() {
+    return (gh / 2 + 0.5) * tile;
   }
 
   // Has the player reached the exit (bottom-right cell)?
