@@ -4,9 +4,10 @@ Player p1;
 Boss minotaur;
 MazeGen maze;
 ArrayList<Enemy> enemies;
+ArrayList<Item> items;
 int px, py;
 float speed, stamina;
-boolean upPressed, downPressed, leftPressed, rightPressed, sprinting, isStarted;
+boolean upPressed, downPressed, leftPressed, rightPressed, sprinting, isStarted, isGameOver;
 PImage startScreen;
 PImage guiOverlay;
 Gif gifRest, gifUp, gifDown, gifLeft, gifRight;
@@ -14,6 +15,7 @@ Gif snakeIdle, snakeAttack;
 
 void setup() {
   isStarted = false;
+  isGameOver = false;
   size(1080, 720);
   frameRate(30);
   speed = 3;
@@ -36,10 +38,11 @@ void setup() {
   snakeAttack.loop();
 
   enemies = new ArrayList<Enemy>();
+  items = new ArrayList<Item>();
   mazegenerate();
 }
 
-// Builds a new random maze and puts the player at the start, Minotaur in the center, and snakes along paths
+// Builds a new random maze and puts the player at the start, Minotaur in the center, and snakes/potions along paths
 void mazegenerate() {
   maze = new MazeGen(25, 25, 80);   // 25x25 cells, 80px per tile
   maze.generate();
@@ -49,8 +52,9 @@ void mazegenerate() {
   minotaur.y = int(maze.centerY());
   minotaur.health = 1000;
 
-  // Spawn snakes randomly along open floor tiles
+  // Spawn snakes and health potions randomly along open floor tiles
   enemies.clear();
+  items.clear();
   int midX = maze.gw / 2;
   int midY = maze.gh / 2;
 
@@ -61,36 +65,62 @@ void mazegenerate() {
       boolean isBossRoom = (abs(gx - midX) <= 1 && abs(gy - midY) <= 1);
       if (isStart || isExit || isBossRoom) continue;
 
-      if (maze.grid[gx][gy] == 0 && random(1) < 0.06) {
+      if (maze.grid[gx][gy] == 0) {
         int spawnX = int((gx + 0.5) * maze.tile);
         int spawnY = int((gy + 0.5) * maze.tile);
-        enemies.add(new Enemy(spawnX, spawnY, snakeIdle, snakeAttack));
+        float roll = random(1);
+        
+        if (roll < 0.05) {
+          // 5% chance to spawn a snake
+          enemies.add(new Enemy(spawnX, spawnY, snakeIdle, snakeAttack));
+        } else if (roll < 0.065) {
+          // 1.5% chance to spawn a health potion ('p')
+          items.add(new Item(spawnX, spawnY, 'p'));
+        }
       }
     }
   }
+}
+
+// Resets player stats, movement keys, and builds a fresh maze
+void restartGame() {
+  p1.health = 100;
+  p1.pDir = 'r';
+  p1.isAttacking = false;
+  stamina = 100;
+  speed = 3;
+  upPressed = false;
+  downPressed = false;
+  leftPressed = false;
+  rightPressed = false;
+  sprinting = false;
+  isGameOver = false;
+  mazegenerate();
 }
 
 void draw() {
   imageMode(CENTER);
   background(120, 120, 120);
 
-  // Sprint System
-  if (sprinting == true) {
-    speed = 8;
-    stamina -= .8;
-  } else {
-    if (stamina < 100) {
-      stamina += .5;
+  // Only update sprint, movement, items, and enemies while playing and alive
+  if (isStarted && !isGameOver) {
+    // Sprint System
+    boolean isMoving = upPressed || downPressed || leftPressed || rightPressed;
+    if (sprinting && isMoving && stamina > 0) {
+      speed = 8;
+      stamina -= .8;
+    } else {
+      if (stamina < 100) {
+        stamina += .5;
+      }
+      speed = 3;
     }
-    speed = 3;
-  }
-  if (stamina < 0) {
-    stamina = 0;
-    speed = 3;
-  }
+    if (stamina < 0) {
+      stamina = 0;
+      speed = 3;
+    }
 
-  // Movement management (with wall collision, each axis separately so you slide along walls)
-  if (isStarted) {
+    // Movement management
     int step = int(speed);
     int dx = 0, dy = 0;
     if (upPressed)    dy -= step;
@@ -101,7 +131,14 @@ void draw() {
     if (!maze.hitsWall(p1.x + dx, p1.y)) p1.x += dx;
     if (!maze.hitsWall(p1.x, p1.y + dy)) p1.y += dy;
 
-    // Update snakes (switches to attack animation when player gets near)
+    // Check potion pickups
+    for (int i = items.size() - 1; i >= 0; i--) {
+      if (items.get(i).checkPickup(p1)) {
+        items.remove(i);
+      }
+    }
+
+    // Update snakes
     for (int i = enemies.size() - 1; i >= 0; i--) {
       Enemy e = enemies.get(i);
       if (e.health <= 0) {
@@ -111,13 +148,19 @@ void draw() {
       }
     }
 
-    // reached the exit -> new maze
-    if (maze.atExit(p1.x, p1.y)) {
+    // Check if snakes drained all player health
+    if (p1.health <= 0) {
+      p1.health = 0;
+      isGameOver = true;
+    }
+
+    // Reached the exit -> new maze
+    if (!isGameOver && maze.atExit(p1.x, p1.y)) {
       mazegenerate();
     }
   }
 
-  // player animation (swap between preloaded gifs, never create new ones here)
+  // Player animation
   Gif target = gifRest;
   if      (p1.pDir == 'w') target = gifUp;
   else if (p1.pDir == 's') target = gifDown;
@@ -134,6 +177,9 @@ void draw() {
   pushMatrix();
   translate(width/2 - p1.x, height/2 - p1.y);
   maze.display(p1.x, p1.y);
+  for (Item item : items) {
+    item.display();
+  }
   for (Enemy e : enemies) {
     e.display();
   }
@@ -143,9 +189,39 @@ void draw() {
   p1.display();
   popMatrix();
 
-  // Startscreen / UI (drawn after popMatrix so it stays fixed on screen)
-  if (isStarted == false) {
+  // Startscreen / Game Over / UI
+  if (!isStarted) {
     image(startScreen, width/2, height/2);
+  } else if (isGameOver) {
+    // Dark translucent overlay
+    fill(0, 0, 0, 190);
+    rectMode(CORNER);
+    rect(0, 0, width, height);
+
+    // Game Over text & restart button
+    textAlign(CENTER, CENTER);
+    fill(220, 40, 40);
+    textSize(72);
+    text("YOU DIED", width/2, height/2 - 80);
+
+    fill(230);
+    textSize(24);
+    text("The labyrinth claimed another soul.", width/2, height/2 - 15);
+
+    // Restart Button
+    rectMode(CENTER);
+    fill(180, 40, 40);
+    stroke(255);
+    strokeWeight(2);
+    rect(width/2, height/2 + 75, 260, 65, 10);
+
+    fill(255);
+    textSize(28);
+    text("RESTART", width/2, height/2 + 75);
+    
+    // Reset drawing modes for the rest of the sketch
+    rectMode(CORNER);
+    noStroke();
   } else {
     noStroke();
     image(guiOverlay, width/2, height/2, width, height);
@@ -158,6 +234,11 @@ void draw() {
 
 // Keybinds
 void keyPressed() {
+  if (isGameOver && (key == 'r' || key == 'R')) {
+    restartGame();
+    return;
+  }
+
   if (key == 'w' || key == 'W') {
     upPressed = true;
     p1.pDir = 'w';
@@ -199,17 +280,23 @@ void keyReleased() {
 }
 
 void mousePressed() {
-  println("mouseX," + mouseX + "mouseY," + mouseY);
-  
-  if (isStarted == false) {
+  if (!isStarted) {
     // Check start button bounds
     if (mouseX > 200 && mouseY > 207 && mouseX < 525 && mouseY < 333) {
       isStarted = true;
-      mazegenerate();   // fresh maze when the game starts
+      restartGame();
+    }
+  } else if (isGameOver) {
+    // Check Restart button bounds
+    if (mouseX > width/2 - 130 && mouseX < width/2 + 130 &&
+        mouseY > height/2 + 42 && mouseY < height/2 + 108) {
+      restartGame();
     }
   } else {
     // Left Click to swing sword toward the mouse cursor
+    if(stamina>7){
     if (mouseButton == LEFT) {
+      stamina -= 14;
       float angleToMouse = atan2(mouseY - height/2, mouseX - width/2);
       p1.attack(angleToMouse);
       
@@ -226,6 +313,6 @@ void mousePressed() {
           println("Snake hit! Health: " + e.health);
         }
       }
-    }
+    }}
   }
 }
