@@ -1,3 +1,4 @@
+// Connor DeWeerd
 class Enemy {
   // Member Variables
   int x, y, w, h, health;
